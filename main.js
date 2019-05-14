@@ -11,11 +11,18 @@ var nextFunction = function () {
         inputChecked.prop("checked", false);    
         nextInput.prop("checked", true);
     }
-    
-
 }
+var trickiOne  = function (){
+    if($(this).next().hasClass('buttonNext')){
+        console.log('dobry guzik');
+        console.log($(this).next().nextAll('div').last().find('p').text());
+        $(this).next().nextAll('div').last().find('p').css('background', 'red');
+    }
+}
+
 
 
 $(document).ready(function() {
     $(document).on("click", ".buttonNext", nextFunction);
+    $(document).on("click", 'button', trickiOne);
 });
